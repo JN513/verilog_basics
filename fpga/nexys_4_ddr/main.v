@@ -41,15 +41,15 @@ module top #(
 
 );
 
-`define CLOCK
+`define BLINKY
 
 `ifdef BLINKY // 001-blinky
 
 wire led_temp;
 
-Blinky #(
+Blink #(
     .CLK_FREQ(CLK_FREQ)
-) blinky (
+) blink (
     .clk  (clk),
     .rst_n(CPU_RESETN),
     .led  (led_temp)

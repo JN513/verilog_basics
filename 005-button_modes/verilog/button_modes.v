@@ -11,7 +11,7 @@ localparam ONE_SECOND          = CLK_FREQ;
 localparam HALF_SECOND         = CLK_FREQ / 2;
 localparam QUARTER_OF_A_SECOND = CLK_FREQ / 4;
 
-localparam SHIFFTER        = 3'b000;
+localparam SHIFTER         = 3'b000;
 localparam COUNTER         = 3'b001;
 localparam FIVES           = 3'b010;
 localparam BLINK           = 3'b011;
@@ -24,13 +24,13 @@ reg button_pressed;
 
 always @(posedge clk ) begin
     if(!rst_n) begin
-        state       <= SHIFFTER;
+        state       <= SHIFTER;
         leds        <= 8'h1F;
         counter     <= 32'h0;
         led_counter <= 8'h0;
     end else begin
         case (state)
-            SHIFFTER: begin
+            SHIFTER: begin
                 if(counter >= QUARTER_OF_A_SECOND) begin
                     counter <= 1'b0;
                     leds    <= {leds[6:0], leds[7]};
@@ -101,14 +101,14 @@ always @(posedge clk ) begin
                 leds <= led_counter;
 
                 if(button_pressed) begin
-                    state   <= SHIFFTER;
+                    state   <= SHIFTER;
                     leds    <= 8'h1F;
                     counter <= 32'h0;
                 end
             end
 
             default: begin
-                state   <= SHIFFTER;
+                state   <= SHIFTER;
                 leds    <= 8'h1F;
                 counter <= 32'h0;
             end

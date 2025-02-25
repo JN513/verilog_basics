@@ -1,4 +1,4 @@
-module Shiffter #(
+module LedShifter #(
     parameter CLK_FREQ = 25_000_000 
 ) (
     input  wire clk,

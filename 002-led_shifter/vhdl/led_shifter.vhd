@@ -3,7 +3,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
-entity Shiffter is
+entity Led_Shifter is
     generic (
         CLK_FREQ : integer := 25_000_000 
     );
@@ -12,9 +12,9 @@ entity Shiffter is
         rst_n : in  STD_LOGIC;
         leds  : out STD_LOGIC_VECTOR(7 downto 0)
     );
-end entity Shiffter;
+end entity Led_Shifter;
 
-architecture Behavioral of Shiffter is
+architecture Behavioral of Led_Shifter is
     constant ONE_SECOND          : integer := CLK_FREQ;
     constant HALF_SECOND         : integer := CLK_FREQ / 2;
     constant QUARTER_OF_A_SECOND : integer := CLK_FREQ / 4;
